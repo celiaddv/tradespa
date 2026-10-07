@@ -1,0 +1,972 @@
+<version.html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TradEspa - Exercices de version</title>
+
+    <style>
+
+        :root {
+            --rouge: #AA182C;
+            --rouge-fonce: #8B1022;
+
+            --jaune: #F4A261;
+            --jaune-fonce: #D9823B;
+
+            --fond: #FAFAFA;
+            --blanc: #FFFFFF;
+
+            --texte: #2B2D42;
+            --texte-clair: #666666;
+
+            --bordure: #E2E8F0;
+            --fond-texte: #F8F9FA;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background-color: var(--fond);
+            color: var(--texte);
+
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 40px;
+
+            background-color: white;
+
+            border-bottom: 3px solid var(--jaune);
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            color: var(--rouge);
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--jaune);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--texte);
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--rouge);
+        }
+
+        /* CONTENU */
+
+        .contenu {
+            max-width: 950px;
+
+            margin: 0 auto;
+
+            padding: 60px 25px 80px;
+        }
+
+        .titre-page {
+            margin-bottom: 10px;
+
+            color: var(--jaune-fonce);
+
+            font-size: 2.5rem;
+        }
+
+        .description-section {
+            color: var(--texte-clair);
+
+            margin-bottom: 45px;
+        }
+
+        /* NIVEAUX */
+
+        .niveau {
+            display: inline-block;
+
+            margin: 30px 0 20px;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 0.9rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+        .niveau-intermediaire {
+            background-color: #E2E8F0;
+            color: #4A5568;
+        }
+
+        .niveau-avance {
+            background-color: #FFF1DD;
+
+            color: #A44B00;
+
+            border: 1px solid var(--jaune);
+        }
+
+        /* EXERCICES */
+
+        .exercice {
+            margin-bottom: 35px;
+
+            padding: 30px;
+
+            background-color: white;
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.04);
+
+            border-left: 5px solid var(--jaune);
+        }
+
+        .exercice h3 {
+            margin-top: 8px;
+
+            font-size: 1.25rem;
+        }
+
+        .type-texte {
+            color: var(--texte-clair);
+
+            font-size: 0.9rem;
+        }
+
+        .texte-source {
+            margin: 20px 0;
+
+            padding: 22px;
+
+            background-color: var(--fond-texte);
+
+            border: 1px solid #E9ECEF;
+
+            border-radius: 9px;
+
+            font-size: 1.08rem;
+
+            line-height: 1.8;
+        }
+
+        /* TEXTAREA */
+
+        textarea {
+            display: block;
+
+            width: 100%;
+
+            min-height: 160px;
+
+            margin: 20px 0;
+
+            padding: 14px;
+
+            resize: vertical;
+
+            border: 2px solid var(--bordure);
+
+            border-radius: 8px;
+
+            background-color: white;
+
+            color: var(--texte);
+
+            font-family: inherit;
+
+            font-size: 1rem;
+
+            line-height: 1.6;
+
+            transition: 0.2s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+
+            border-color: var(--jaune-fonce);
+
+            box-shadow:
+                0 0 0 3px rgba(244, 162, 97, 0.12);
+        }
+
+        /* BOUTON */
+
+        .actions {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn-effacer {
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+            background-color: #EDF2F7;
+
+            color: #4A5568;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .btn-effacer:hover {
+            background-color: #E2E8F0;
+        }
+
+        /* CORRECTION */
+
+        details {
+            margin-top: 15px;
+
+            overflow: hidden;
+
+            border: 1px solid #FED7D7;
+
+            border-radius: 8px;
+
+            background-color: #FFF5F5;
+        }
+
+        summary {
+            padding: 14px 18px;
+
+            color: var(--rouge);
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            user-select: none;
+        }
+
+        summary:hover {
+            background-color: #FFE5E5;
+        }
+
+        .correction {
+            padding: 20px;
+
+            background-color: white;
+
+            border-top: 1px solid #FED7D7;
+
+            font-size: 1.05rem;
+
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 20px;
+
+            background-color: white;
+
+            border-top: 1px solid var(--bordure);
+
+            color: #999;
+
+            text-align: center;
+
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--rouge);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .contenu {
+                padding-top: 40px;
+            }
+
+            .titre-page {
+                font-size: 2rem;
+            }
+
+            .exercice {
+                padding: 20px;
+            }
+
+            .texte-source {
+                padding: 17px;
+
+                font-size: 1rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =============================================================
+     HEADER
+============================================================= -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        Trad<span>Espa</span>
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Accueil
+        </a>
+
+        <a href="theme.html">
+            Thème
+        </a>
+
+        <a href="version.html">
+            Version
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =============================================================
+     CONTENU VERSION
+============================================================= -->
+
+<main class="contenu">
+
+    <h1 class="titre-page">
+        Exercices de version
+    </h1>
+
+    <p class="description-section">
+        Espagnol → Français
+    </p>
+
+
+    <!-- =========================================================
+         B1-B2
+    ========================================================= -->
+
+    <span class="niveau niveau-intermediaire">
+        Niveau Intermédiaire (B1 - B2)
+    </span>
+
+
+    <!-- VERSION 1 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Version • Exercice 1
+        </span>
+
+        <h3>
+            Extrait de <em>Platero y yo</em> (Chapitre I)
+            – Juan Ramón Jiménez
+        </h3>
+
+        <div class="texte-source">
+
+            « Platero es pequeño, peludo, suave; tan blando por
+            fuera, que se diría todo de algodón, que no lleva huesos.
+            Sólo los espejos de azabache de sus ojos son duros cual
+            dos escarabajos de cristal negro. Lo dejo suelto, y se
+            va al prado, y acaricia tibiamente con su hocico,
+            rozándolas apenas, las florecillas rosas, celestes y
+            gualdas... Lo llamo dulcemente: "¿Platero?", y viene a mí
+            con un trotecillo alegre que parece que se ríe, en no sé
+            qué cascabeleo ideal. Come cuanto le doy. Le gustan las
+            naranjas mandarinas, las uvas de moscatel, todas de ámbar,
+            los higos morados, con su cristalina gotita de miel...
+            Es tierno y mimoso igual que un niño, que una niña...;
+            pero fuerte y seco por dentro, como de piedra. Cuando paso
+            sobre él, los domingos, por las últimas callejas del
+            pueblo, los hombres de campo, vestidos de limpio y
+            despaciosos, se quedan mirándolo. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en français ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Platero est petit, poilu, doux ; si mou à l'extérieur
+                qu'on le dirait tout en coton, qu'il n'a pas d'os.
+                Seuls les miroirs de jais de ses yeux sont durs comme
+                deux scarabées de cristal noir. Je le laisse en liberté,
+                et il s'en va au pré ; il caresse tièdement de son
+                museau, les effleurant à peine, les petites fleurs
+                roses, bleu azur et jaune d'or... Je l'appelle
+                doucement : « Platero ? », et il vient à moi d'un
+                petit trot joyeux qui donne l'impression qu'il rit,
+                dans je ne sais quel tintement idéal de clochettes.
+                Il mange tout ce que je lui donne. Il aime les
+                mandarines, les raisins de muscat, tout d'ambre,
+                les figues violettes, avec leur petite goutte de miel
+                cristalline... Il est tendre et câlin tout comme un
+                enfant, comme une petite fille... ; mais fort et sec
+                à l'intérieur, comme s'il était de pierre. Quand je
+                passe sur lui, le dimanche, dans les dernières ruelles
+                du village, les hommes de la campagne, habillés de
+                propre et lents, s'arrêtent pour le regarder.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- VERSION 2 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Version • Exercice 2
+        </span>
+
+        <h3>
+            Extrait de <em>Como agua para chocolate</em>
+            – Laura Esquivel
+        </h3>
+
+        <div class="texte-source">
+
+            « Tita sabía perfectamente que el destino de las mujeres
+            de su familia era cuidar a las madres hasta la muerte.
+            Aquella regla absurda le parecía una condena injusta,
+            pero en la cocina, entre los olores del cilantro y el
+            comino, encontraba la única libertad que el mundo le
+            permitía. Mamá Elena consideraba que la obediencia no era
+            una opción, sino una obligación sagrada. Cada tarde,
+            mientras preparaban las tortillas o limpiaban los frijoles,
+            el silencio en la habitación se volvía tan denso que casi
+            podía cortarse con un cuchillo. Tita miraba el fuego del
+            fogón y se preguntaba si alguna vez sus manos conocerían
+            otra cosa que no fuera el servicio y la tradición,
+            sintiendo cómo las lágrimas amenazaban con mezclarse con
+            la masa que amasaba con resignación pero también con una
+            oculta rebeldía que crecía en su pecho. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en français ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Tita savait parfaitement que le destin des femmes de
+                sa famille était de s'occuper de leur mère jusqu'à
+                leur mort. Cette règle absurde lui semblait une
+                condamnation injuste, mais dans la cuisine, parmi les
+                odeurs de coriandre et de cumin, elle trouvait la seule
+                liberté que le monde lui permettait. Maman Elena
+                considérait que l'obéissance n'était pas une option,
+                mais une obligation sacrée. Chaque après-midi,
+                pendant qu'elles préparaient les tortillas ou triaient
+                les haricots rouges, le silence dans la pièce devenait
+                si dense qu'on pouvait presque le couper au couteau.
+                Tita regardait le feu du fourneau et se demandait si
+                un jour ses mains connaîtraient autre chose que le
+                service et la tradition, sentant combien les larmes
+                menaçaient de se mêler à la pâte qu'elle pétrissait
+                avec résignation, mais aussi avec une sourde rébellion
+                qui grandissait dans sa poitrine.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- VERSION 3 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Version • Exercice 3
+        </span>
+
+        <h3>
+            Extrait de <em>Capítulos que se le olvidaron a Cervantes</em>
+            – Juan Montalvo
+        </h3>
+
+        <div class="texte-source">
+
+            « El sol salía hermosamente por detrás de las montañas.
+            Los pájaros cantaban en los árboles y el aire de la mañana
+            era fresco y limpio. Don Quijote caminaba lentamente sobre
+            su caballo, mirando el camino con ojos alegres. Sancho
+            Panza iba detrás de él, montado en su asno, pensando en la
+            comida del mediodía. El silencio del campo era perfecto,
+            y los dos viajeros se sentían felices en ese momento del
+            día, lejos de los problemas del mundo. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en français ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Le soleil se levait magnifiquement derrière les
+                montagnes. Les oiseaux chantaient dans les arbres
+                et l'air du matin était frais et propre. Don Quichotte
+                marchait lentement sur son cheval, regardant le chemin
+                avec des yeux joyeux. Sancho Panza allait derrière lui,
+                monté sur son âne, pensant au repas du midi. Le silence
+                de la campagne était parfait, et les deux voyageurs
+                se sentaient heureux à ce moment de la journée, loin
+                des problèmes du monde.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- =========================================================
+         C1-C2
+    ========================================================= -->
+
+    <span class="niveau niveau-avance">
+        Niveau Avancé / Expérimenté (C1 - C2)
+    </span>
+
+
+    <!-- VERSION 4 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Version • Exercice 4
+        </span>
+
+        <h3>
+            Extrait de <em>Cien años de soledad</em>
+            – Gabriel García Márquez
+        </h3>
+
+        <div class="texte-source">
+
+            « Muchos años después, frente al pelotón de fusilamiento,
+            el coronel Aureliano Buendía había de recordar aquella
+            tarde remota en que su padre lo llevó a conocer el hielo.
+            Macondo era entonces una aldea de veinte casas de barro y
+            cañabrava construidas a la orilla de un río de aguas
+            diáfanas que se precipitaban por un lecho de piedras
+            pulidas, blancas y enormes como huevos prehistóricos.
+            El mundo era tan reciente, que muchas cosas carecían de
+            nombre, y para mencionarlas había que señalarlas con el
+            dedo. Todos los años, por el mes de marzo, una familia de
+            gitanos desarrapados plantaba su carpa cerca de la aldea,
+            y con un grande alboroto de pitos y timbales daban a
+            conocer los nuevos inventos. Primero llevaron el imán.
+            Un gitano corpulento, de barba montaraz y manos de
+            gorrión, que se presentó con el nombre de Melquíades,
+            hizo una truculenta demostración pública de lo que él
+            mismo llamaba la octava maravilla de los sabios
+            alquimistas de Macedonia. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en français ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Bien des années plus tard, face au peloton
+                d'exécution, le colonel Aureliano Buendía devait se
+                rappeler cet après-midi lointain où son père l'emmena
+                faire connaissance avec la glace. Macondo était alors
+                un village de vingt maisons en boue et en roseaux
+                construites au bord d'une rivière aux eaux diaphanes
+                qui se précipitaient sur un lit de pierres polies,
+                blanches et énormes comme des œufs préhistoriques.
+                Le monde était si récent que beaucoup de choses
+                n'avaient pas encore de nom, et pour les mentionner,
+                il fallait les montrer du doigt. Chaque année, au mois
+                de mars, une famille de gitans déguenillés dressait
+                sa tente près du village et, dans un grand fracas de
+                sifflets et de timbales, faisait connaître les nouvelles
+                inventions. D'abord, ils apportèrent l'aimant.
+                Un gitan corpulent, à la barbe sauvage et aux mains
+                de moineau, qui se présenta sous le nom de Melquíades,
+                fit une démonstration publique et truculente de ce
+                qu'il appelait lui-même la huitième merveille des
+                sages alchimistes de Macédoine.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- VERSION 5 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Version • Exercice 5
+        </span>
+
+        <h3>
+            Extrait de <em>El Aleph</em>
+            – Jorge Luis Borges
+        </h3>
+
+        <div class="texte-source">
+
+            « En la parte inferior de la nuca, sobre el tercer peldaño
+            de la escalera, vi una pequeña esfera tornasolada, de casi
+            intolerable fulgor. Al principio la creí circular; luego
+            comprendí que ese movimiento era una ilusión producida por
+            los vertiginosos espectáculos que encerraba. El diámetro
+            del Aleph sería de dos o tres centímetros, pero el espacio
+            cósmico estaba ahí, sin disminución de tamaño. Cada cosa
+            era infinitas cosas, porque yo claramente la veía desde
+            todos los puntos del universo. Vi el populoso mar, vi el
+            alba y la tarde, vi las muchedumbres de América, vi una
+            plateada telaraña en el centro de una negra catedral. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en français ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Dans la partie inférieure de la nuque, sur la troisième
+                marche de l'escalier, je vis une petite sphère chatoyante,
+                d'un éclat presque intolérable. Au début, je la crus
+                circulaire ; puis je compris que ce mouvement était une
+                illusion produite par les spectacles vertigineux qu'elle
+                renfermait. Le diamètre de l'Aleph devait être de deux ou
+                trois centimètres, mais l'espace cosmique était là, sans
+                diminution de taille. Chaque chose était des choses
+                infinies, parce que je la voyais clairement depuis tous
+                les points de l'univers. Je vis la mer populeuse, je vis
+                l'aube et le soir, je vis les multitudes d'Amérique,
+                je vis une toile d'araignée argentée au centre d'une
+                cathédrale noire.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- VERSION 6 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Version • Exercice 6
+        </span>
+
+        <h3>
+            Extrait de <em>El siglo de las luces</em>
+            (Le Siècle des Lumières) – Alejo Carpentier
+        </h3>
+
+        <div class="texte-source">
+
+            « Esta noche he visto alzarse la máquina en la plaza,
+            recortando su silueta geométrica sobre el fondo de un
+            cielo cargado de estrellas presagas. Bajo la fría luz
+            lunar, el madero vertical y la cuchilla oblicua asumían
+            una presencia casi sagrada, un rigor de monumento erigido
+            no para la muerte de los hombres, sino para la inauguración
+            de una era desprovista de sombras. Los tambores redoblaban
+            con una monotonía que hería las sienes, mientras la
+            multitud, congregada en un mutismo absoluto, aguardaba el
+            instante supremo en que el acero, suspendido en lo alto,
+            se despeñara con el estrépito de un rayo frío, rompiendo
+            de golpe la continuidad del tiempo y abriendo de par en par
+            las puertas de una historia irreversible. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en français ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Cette nuit, j'ai vu la machine se dresser sur la place,
+                découpant sa silhouette géométrique sur le fond d'un
+                ciel chargé d'étoiles de mauvais augure. Sous la froide
+                lumière lunaire, le bois vertical et la lame oblique
+                prenaient une présence presque sacrée, une rigueur de
+                monument érigé non pour la mort des hommes, mais pour
+                l'inauguration d'une ère dépourvue d'ombres. Les
+                tambours roulaient avec une monotonie qui me
+                meurtrissait les tempes, tandis que la foule, rassemblée
+                dans un mutisme absolu, attendait l'instant suprême où
+                l'acier, suspendu dans les hauteurs, se précipiterait
+                avec le fracas d'un éclair froid, rompant d'un coup la
+                continuité du temps et ouvrant toutes grandes les portes
+                d'une histoire irréversible.
+
+            </div>
+
+        </details>
+
+    </article>
+
+</main>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>TradEspa</strong>
+    </p>
+
+    <p>
+        Plateforme d'entraînement à la traduction espagnole
+    </p>
+
+</footer>
+
+
+<!-- =============================================================
+     JAVASCRIPT
+============================================================= -->
+
+<script>
+
+    function effacer(bouton) {
+
+        const exercice = bouton.closest(".exercice");
+
+        const textarea =
+            exercice.querySelector("textarea");
+
+        textarea.value = "";
+
+        textarea.focus();
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const corrections =
+            document.querySelectorAll("details");
+
+        corrections.forEach(function (correction) {
+
+            correction.removeAttribute("open");
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
