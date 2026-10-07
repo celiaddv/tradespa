@@ -1,0 +1,989 @@
+<theme.html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TradEspa - Exercices de thème</title>
+
+    <style>
+
+        :root {
+            --rouge: #AA182C;
+            --rouge-fonce: #8B1022;
+
+            --jaune: #F4A261;
+            --jaune-fonce: #D9823B;
+
+            --fond: #FAFAFA;
+            --blanc: #FFFFFF;
+
+            --texte: #2B2D42;
+            --texte-clair: #666666;
+
+            --bordure: #E2E8F0;
+            --fond-texte: #F8F9FA;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background-color: var(--fond);
+            color: var(--texte);
+
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 40px;
+
+            background-color: white;
+
+            border-bottom: 3px solid var(--jaune);
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            color: var(--rouge);
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--jaune);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--texte);
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--rouge);
+        }
+
+        /* CONTENU */
+
+        .contenu {
+            max-width: 950px;
+
+            margin: 0 auto;
+
+            padding: 60px 25px 80px;
+        }
+
+        .titre-page {
+            margin-bottom: 10px;
+
+            color: var(--rouge);
+
+            font-size: 2.5rem;
+        }
+
+        .description-section {
+            color: var(--texte-clair);
+
+            margin-bottom: 45px;
+        }
+
+        /* NIVEAUX */
+
+        .niveau {
+            display: inline-block;
+
+            margin: 30px 0 20px;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 0.9rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+        .niveau-intermediaire {
+            background-color: #E2E8F0;
+            color: #4A5568;
+        }
+
+        .niveau-avance {
+            background-color: #FFF1DD;
+
+            color: #A44B00;
+
+            border: 1px solid var(--jaune);
+        }
+
+        /* EXERCICES */
+
+        .exercice {
+            margin-bottom: 35px;
+
+            padding: 30px;
+
+            background-color: white;
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.04);
+
+            border-left: 5px solid var(--rouge);
+        }
+
+        .exercice h3 {
+            margin-top: 8px;
+
+            font-size: 1.25rem;
+        }
+
+        .type-texte {
+            color: var(--texte-clair);
+
+            font-size: 0.9rem;
+        }
+
+        .texte-source {
+            margin: 20px 0;
+
+            padding: 22px;
+
+            background-color: var(--fond-texte);
+
+            border: 1px solid #E9ECEF;
+
+            border-radius: 9px;
+
+            font-size: 1.08rem;
+
+            line-height: 1.8;
+        }
+
+        /* TEXTAREA */
+
+        textarea {
+            display: block;
+
+            width: 100%;
+
+            min-height: 160px;
+
+            margin: 20px 0;
+
+            padding: 14px;
+
+            resize: vertical;
+
+            border: 2px solid var(--bordure);
+
+            border-radius: 8px;
+
+            background-color: white;
+
+            color: var(--texte);
+
+            font-family: inherit;
+
+            font-size: 1rem;
+
+            line-height: 1.6;
+
+            transition: 0.2s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+
+            border-color: var(--rouge);
+
+            box-shadow:
+                0 0 0 3px rgba(170, 24, 44, 0.08);
+        }
+
+        /* BOUTON */
+
+        .actions {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn-effacer {
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+            background-color: #EDF2F7;
+
+            color: #4A5568;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .btn-effacer:hover {
+            background-color: #E2E8F0;
+        }
+
+        /* CORRECTION */
+
+        details {
+            margin-top: 15px;
+
+            overflow: hidden;
+
+            border: 1px solid #FED7D7;
+
+            border-radius: 8px;
+
+            background-color: #FFF5F5;
+        }
+
+        summary {
+            padding: 14px 18px;
+
+            color: var(--rouge);
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            user-select: none;
+        }
+
+        summary:hover {
+            background-color: #FFE5E5;
+        }
+
+        .correction {
+            padding: 20px;
+
+            background-color: white;
+
+            border-top: 1px solid #FED7D7;
+
+            font-size: 1.05rem;
+
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 20px;
+
+            background-color: white;
+
+            border-top: 1px solid var(--bordure);
+
+            color: #999;
+
+            text-align: center;
+
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--rouge);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .contenu {
+                padding-top: 40px;
+            }
+
+            .titre-page {
+                font-size: 2rem;
+            }
+
+            .exercice {
+                padding: 20px;
+            }
+
+            .texte-source {
+                padding: 17px;
+
+                font-size: 1rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =============================================================
+     HEADER
+============================================================= -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        Trad<span>Espa</span>
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Accueil
+        </a>
+
+        <a href="theme.html">
+            Thème
+        </a>
+
+        <a href="version.html">
+            Version
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =============================================================
+     CONTENU THÈME
+============================================================= -->
+
+<main class="contenu">
+
+    <h1 class="titre-page">
+        Exercices de thème
+    </h1>
+
+    <p class="description-section">
+        Français → Espagnol
+    </p>
+
+
+    <!-- =========================================================
+         B1-B2
+    ========================================================= -->
+
+    <span class="niveau niveau-intermediaire">
+        Niveau Intermédiaire (B1 - B2)
+    </span>
+
+
+    <!-- THÈME 1 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Thème • Exercice 1
+        </span>
+
+        <h3>
+            Extrait de <em>L'Étranger</em>
+            – Albert Camus
+        </h3>
+
+        <div class="texte-source">
+
+            Nous avons marché longtemps sur la plage. À ce moment,
+            le soleil devenait écrasant. Il éclatait sur le sable
+            et sur la mer. J'ai dit à Raymond qu'il fallait
+            rebrousser chemin, mais il a continué à avancer sans
+            répondre. La chaleur était telle que je ne pouvais plus
+            rester immobile. C'est alors que nous avons vu, tout au
+            bout de la plage, les deux Arabes qui venaient vers nous.
+            Ils marchaient lentement, à la même vitesse que nous,
+            et ils semblaient ne pas nous voir. La distance entre
+            eux et nous diminuait peu à peu. Je sentais le sang
+            battre dans mes tempes et le poids du jour peser sur
+            mes épaules. À chaque pas, le sable brûlant s'enfonçait
+            sous mes souliers et je me demandais si nous allions
+            nous arrêter ou si nous allions continuer cette marche
+            absurde sous la lumière aveuglante du midi.
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en espagnol ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Caminamos durante mucho tiempo por la playa. En ese
+                momento, el sol empezaba a ser agobiante. Estallaba
+                sobre la arena y sobre el mar. Le dije a Raimundo que
+                debíamos volver, pero siguió avanzando sin responder.
+                El calor era tal que yo ya no podía quedarme inmóvil.
+                Fue entonces cuando vimos, al final de la playa, a los
+                dos árabes que venían hacia nosotros. Caminaban despacio,
+                a la misma velocidad que nosotros, y parecían no vernos.
+                La distancia entre ellos y nosotros disminuía poco a poco.
+                Sentía la sangre latir en mis sienes y el peso del día
+                pesar sobre mis hombros. A cada paso, la arena ardiente
+                se hundía bajo mis zapatos y me preguntaba si íbamos a
+                detenernos o si íbamos a continuar esta marcha absurda
+                bajo la luz cegadora del mediodía.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- THÈME 2 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Thème • Exercice 2
+        </span>
+
+        <h3>
+            Extrait de <em>Le Petit Prince</em>
+            – Antoine de Saint-Exupéry
+        </h3>
+
+        <div class="texte-source">
+
+            Le premier soir je me suis donc endormi sur le sable
+            à mille milles de toute terre habitée. J’étais bien
+            plus isolé qu’un naufragé sur un radeau au milieu de
+            l’océan. Alors vous imaginez ma surprise, au lever du
+            jour, quand une drôle de petite voix m’a réveillé.
+            Elle disait : « S’il vous plaît… dessine-moi un mouton ! »
+            J’ai sauté sur mes pieds comme si j’avais été frappé
+            par la foudre. J’ai bien frotté mes yeux. J’ai bien
+            regardé. Et j’ai vu un petit bonhomme tout à fait
+            extraordinaire qui me considérait avec gravité.
+            Je regardai donc cette apparition avec des yeux tout
+            ronds d'étonnement. N'oubliez pas que je me trouvais
+            à mille milles de toute région habitée. Or mon petit
+            bonhomme ne me semblait ni égaré, ni mort de fatigue,
+            ni mort de faim, ni mort de soif, ni mort de peur.
+            Il n’avait en rien l’apparence d’un enfant perdu au
+            milieu du désert, à mille milles de toute terre habitée.
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en espagnol ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                La primera noche me dormí, pues, sobre la arena,
+                a mil millas de toda tierra habitada. Estaba mucho
+                más aislado que un náufrago en una balsa en medio
+                del océano. Imaginen, pues, mi sorpresa cuando,
+                al amanecer, me despertó una extraña vocecita.
+                Decía: «Por favor… ¡dibújame un cordero!».
+                Me puse en pie de un salto como si me hubiera
+                alcanzado un rayo. Me froté bien los ojos. Miré
+                con atención. Y vi a un hombrecito completamente
+                extraordinario que me observaba con gravedad.
+                Miré, pues, aquella aparición con los ojos redondos
+                por el asombro. No olviden que me encontraba a mil
+                millas de toda región habitada. Pero mi hombrecito
+                no parecía ni extraviado, ni muerto de cansancio,
+                ni muerto de hambre, ni muerto de sed, ni muerto
+                de miedo. No tenía para nada la apariencia de un
+                niño perdido en medio del desierto, a mil millas
+                de toda tierra habitada.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- THÈME 3 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Thème • Exercice 3
+        </span>
+
+        <h3>
+            Extrait de <em>Vingt mille lieues sous les mers</em>
+            – Jules Verne
+        </h3>
+
+        <div class="texte-source">
+
+            La mer était magnifiquement belle, d'un bleu transparent
+            qui laissait deviner les profondeurs mystérieuses de
+            l'océan. Depuis le pont du navire, nous observions
+            l'horizon sans relâche, espérant apercevoir le monstre
+            dont tout le monde parlait depuis des mois. Le capitaine
+            Ned Land, un harpon à la main, restait immobile à la proue,
+            le regard fixe et attentif au moindre mouvement des vagues.
+            L'attente prolongeait l'anxiété de l'équipage, et personne
+            ne voulait descendre dans les cabines malgré la fraîcheur
+            de la nuit qui tombait. Soudain, une lueur étrange apparut
+            à quelques milles de nous, fendant les eaux avec une
+            rapidité incroyable. Un silence de mort régna à bord ;
+            chacun retint son souffle, comprenant que la confrontation
+            tant redoutée allait enfin avoir lieu.
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en espagnol ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                El mar estaba magníficamente hermoso, de un azul
+                transparente que dejaba adivinar las profundidades
+                misteriosas del océano. Desde la cubierta del navío,
+                observábamos el horizonte sin descanso, esperando
+                divisar al monstruo del que todo el mundo hablaba
+                desde hacía meses. El capitán Ned Land, con un arpón
+                en la mano, permanecía inmóvil en la proa, con la
+                mirada fija y atento al menor movimiento de las olas.
+                La espera prolongaba la ansiedad de la tripulación,
+                y nadie quería bajar a los camarotes a pesar de la
+                frescura de la noche que caía. De repente, un
+                resplandor extraño apareció a unas millas de nosotros,
+                hendiendo las aguas con una rapidez increíble.
+                Un silencio de muerte reinó a bordo; cada cual
+                contuvo el aliento, comprendiendo que la confrontación
+                tan temida iba por fin a tener lugar.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- =========================================================
+         C1-C2
+    ========================================================= -->
+
+    <span class="niveau niveau-avance">
+        Niveau Avancé / Expérimenté (C1 - C2)
+    </span>
+
+
+    <!-- THÈME 4 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Thème • Exercice 4
+        </span>
+
+        <h3>
+            Extrait de <em>Du côté de chez Swann</em>
+            – Marcel Proust
+        </h3>
+
+        <div class="texte-source">
+
+            Il y avait déjà bien des années que, de Combray, tout
+            ce qui n’était pas le théâtre et le drame de mon coucher
+            n’existait plus pour moi, quand un jour d’hiver, comme
+            je rentrais à la maison, ma mère, voyant que j’avais froid,
+            me proposa de me faire prendre, contre mon habitude,
+            un peu de thé. Je refusai d’abord et, je ne sais pourquoi,
+            me ravisai. Elle envoya chercher un de ces gâteaux courts
+            et dodus appelés petites madeleines qui semblent avoir
+            été moulés dans la valve rainurée d’une coquille de
+            Saint-Jacques. Et bientôt, machinalement, accablé par
+            la morne journée et la perspective d’un triste lendemain,
+            je portai à mes lèvres une cuillerée du thé où j’avais
+            laissé s’amollir un morceau de madeleine. Mais au moment
+            même où la gorgée mêlée des miettes du gâteau toucha mon
+            palais, je tressaillis, attentif à ce qui se passait
+            d’extraordinaire en moi. Un plaisir délicieux m’avait
+            envahi, isolé, sans la notion de sa cause.
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en espagnol ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Hacía ya muchos años que, de Combray, todo lo que no
+                fuera el teatro y el drama de mi acostar no existía ya
+                para mí, cuando un día de invierno, al volver a casa,
+                mi madre, viendo que tenía frío, me propuso que tomara,
+                en contra de mi costumbre, un poco de té. Al principio
+                me negué y, no sé por qué, cambié de opinión. Mandó a
+                buscar uno de esos bollos cortos y regordetes llamados
+                magdalenas, que parecen haber sido moldeados en la
+                valva ranurada de una concha de peregrino. Y pronto,
+                de forma maquinal, abrumado por el lánguido día y la
+                perspectiva de un triste mañana, me llevé a los labios
+                una cucharada de té en el que había dejado ablandar
+                un trozo de magdalena. Pero en el mismo instante en
+                que el trago mezclado con las migas del bollo tocó mi
+                paladar, me estremecí, atento a lo extraordinario que
+                ocurría en mi interior. Un placer delicioso me había
+                invadido, aislado, sin la noción de su causa.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- THÈME 5 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Thème • Exercice 5
+        </span>
+
+        <h3>
+            Extrait de <em>Notre-Dame de Paris</em>
+            – Victor Hugo
+        </h3>
+
+        <div class="texte-source">
+
+            Si le lecteur consent à jeter un coup d'œil sur la place
+            de Grève, au moment où nous venons de l'abandonner,
+            il y retrouvera une foule immense et frémissante, qui
+            s'étouffe autour d'un spectacle dont la sinistre poésie
+            n'appartient qu'au Moyen Âge. Rien n'était plus lugubre
+            que cet aspect général, où se mêlaient les éclats de rire
+            d'une populace en goguette aux lamentations étouffées de
+            quelques dévots agenouillés dans l'ombre des portails.
+            Le monument lui-même, baigné par les lueurs vacillantes
+            des torches, projetait sur le pavé des ombres fantastiques
+            qui semblaient s'animer au gré du vent. C'était un de ces
+            instants suspendus où l'architecture et la passion humaine
+            se confondent pour graver dans la pierre le souvenir
+            ineffaçable d'un drame que le temps lui-même, malgré son
+            pouvoir de destruction, ne saurait effacer de la mémoire
+            des hommes.
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en espagnol ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                Si el lector consiente en echar una ojeada a la plaza
+                de Grève, en el momento en que acabamos de abandonarla,
+                volverá a encontrar en ella una muchedumbre inmensa y
+                vibrante, que se asfixia alrededor de un espectáculo
+                cuya siniestra poesía pertenece solo a la Edad Media.
+                Nada era más lúgubre que aquel aspecto general, donde
+                se mezclaban las carcajadas de una población de juerga
+                con las lamentaciones ahogadas de unos pocos devotos
+                arrodillados a la sombra de las portadas. El monumento
+                mismo, bañado por los destellos vacilantes de las
+                antorchas, proyectaba sobre el pavimento sombras
+                fantásticas que parecían animarse al antojo del viento.
+                Era uno de esos instantes suspendidos donde la
+                arquitectura y la pasión humana se confunden para
+                grabar en la piedra el recuerdo inefable de un drama
+                que el tiempo mismo, a pesar de su poder de destrucción,
+                no sabría borrar de la memoria de los hombres.
+
+            </div>
+
+        </details>
+
+    </article>
+
+
+    <!-- THÈME 6 -->
+
+    <article class="exercice">
+
+        <span class="type-texte">
+            Thème • Exercice 6
+        </span>
+
+        <h3>
+            Extrait de <em>Tristes Tropiques</em>
+            – Claude Lévi-Strauss
+        </h3>
+
+        <div class="texte-source">
+
+            « Le monde a commencé sans l'homme et il s'achèvera
+            sans lui. Les institutions, les mœurs et les coutumes,
+            que je me serai passé à inventorier et à comprendre,
+            sont une efflorescence passagère d'une création par
+            rapport à laquelle elles n'ont d'autre sens que de lui
+            permettre de jouer son rôle. Loin que ce rôle lui assigne
+            une place indépendante et que l'effort de l'homme soit
+            de s'arracher à l'universel aveuglement, la civilisation
+            ne s'apparaît plus à elle-même, à l'intérieur de notre
+            propre histoire, que comme un mécanisme complexe destiné
+            à produire ce que les physiciens nomment de l'entropie,
+            c'est-à-dire de l'inertie. Chaque parole échangée,
+            chaque ligne imprimée établissent une communication
+            entre deux interlocuteurs, créant un ordre là où régnait
+            la confusion. Mais, en même temps, elles détruisent une
+            part d'énergie qui ne se recouvrera jamais. »
+
+        </div>
+
+        <textarea
+            placeholder="Écrivez votre traduction en espagnol ici..."
+        ></textarea>
+
+        <div class="actions">
+
+            <button
+                class="btn-effacer"
+                onclick="effacer(this)"
+            >
+                Effacer ma traduction
+            </button>
+
+        </div>
+
+        <details>
+
+            <summary>
+                Afficher la correction
+            </summary>
+
+            <div class="correction">
+
+                « El mundo comenzó sin el hombre y terminará sin él.
+                Las instituciones, los usos y las costumbres, que me
+                habré dedicado a inventariar y a comprender, son una
+                eflorescencia pasajera de una creación respecto a la
+                cual no tienen otro sentido que permitirle desempeñar
+                su papel. Lejos de que este papel le asigne un lugar
+                independiente y de que el esfuerzo del hombre consista
+                en arrancarse de la ceguera universal, la civilización
+                ya no se nos presenta, dentro de nuestra propia historia,
+                sino como un mecanismo complejo destinado a producir lo
+                que los físicos llaman entropía, es decir, inercia.
+                Cada palabra intercambiada, cada línea impresa establecen
+                una comunicación entre dos interlocutores, creando un
+                orden allí donde reinaba la confusión. Pero, al mismo
+                tiempo, destruyen una parte de energía que jamás volverá
+                a recuperarse. »
+
+            </div>
+
+        </details>
+
+    </article>
+
+</main>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>TradEspa</strong>
+    </p>
+
+    <p>
+        Plateforme d'entraînement à la traduction espagnole
+    </p>
+
+</footer>
+
+
+<script>
+
+    function effacer(bouton) {
+
+        const exercice =
+            bouton.closest(".exercice");
+
+        const textarea =
+            exercice.querySelector("textarea");
+
+        textarea.value = "";
+
+        textarea.focus();
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const corrections =
+            document.querySelectorAll("details");
+
+        corrections.forEach(function (correction) {
+
+            correction.removeAttribute("open");
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
