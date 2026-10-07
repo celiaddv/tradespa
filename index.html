@@ -1,0 +1,472 @@
+<index.html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TradEspa - Entraînement à la traduction espagnole</title>
+
+    <style>
+
+        :root {
+            --rouge: #AA182C;
+            --rouge-fonce: #8B1022;
+            --jaune: #F4A261;
+            --jaune-fonce: #D9823B;
+
+            --fond: #FAFAFA;
+            --blanc: #FFFFFF;
+
+            --texte: #2B2D42;
+            --texte-clair: #666666;
+
+            --bordure: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background-color: var(--fond);
+            color: var(--texte);
+
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 40px;
+
+            background-color: var(--blanc);
+
+            border-bottom: 3px solid var(--jaune);
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            color: var(--rouge);
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--jaune);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--texte);
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--rouge);
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1100px;
+
+            margin: 80px auto;
+
+            padding: 0 25px;
+
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 15px;
+
+            font-size: 2.7rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--rouge);
+        }
+
+        .subtitle {
+            max-width: 750px;
+
+            margin: 0 auto 45px;
+
+            color: var(--texte-clair);
+
+            font-size: 1.1rem;
+        }
+
+        /* CARTES */
+
+        .grid-choix {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+        .carte-choix {
+            padding: 40px 30px;
+
+            background: var(--blanc);
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.05);
+
+            border-top: 5px solid var(--rouge);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .carte-choix:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .carte-choix.version {
+            border-top-color: var(--jaune);
+        }
+
+        .carte-choix h2 {
+            margin-top: 0;
+
+            font-size: 1.7rem;
+        }
+
+        .carte-choix p {
+            color: var(--texte-clair);
+
+            margin-bottom: 30px;
+        }
+
+        /* BOUTONS */
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+        }
+
+        .btn-theme {
+            background-color: var(--rouge);
+            color: white;
+        }
+
+        .btn-theme:hover {
+            background-color: var(--rouge-fonce);
+        }
+
+        .btn-version {
+            background-color: var(--jaune);
+            color: white;
+        }
+
+        .btn-version:hover {
+            background-color: var(--jaune-fonce);
+        }
+
+        /* PRESENTATION */
+
+        .presentation {
+            max-width: 950px;
+
+            margin: 0 auto;
+
+            padding: 20px 25px 80px;
+
+            text-align: center;
+        }
+
+        .presentation h2 {
+            margin-bottom: 15px;
+
+            font-size: 2rem;
+        }
+
+        .presentation p {
+            color: var(--texte-clair);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 20px;
+
+            background-color: white;
+
+            border-top: 1px solid var(--bordure);
+
+            color: #999;
+
+            text-align: center;
+
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--rouge);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                margin-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-choix {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =============================================================
+     HEADER
+============================================================= -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        Trad<span>Espa</span>
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Accueil
+        </a>
+
+        <a href="theme.html">
+            Thème
+        </a>
+
+        <a href="version.html">
+            Version
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =============================================================
+     ACCUEIL
+============================================================= -->
+
+<section class="hero">
+
+    <h1>
+        Entraînez-vous à la
+        <span>traduction espagnole</span>
+    </h1>
+
+    <p class="subtitle">
+
+        Des textes littéraires sélectionnés pour perfectionner
+        votre espagnol et développer vos compétences en thème
+        et en version.
+
+    </p>
+
+
+    <div class="grid-choix">
+
+
+        <!-- THÈME -->
+
+        <div class="carte-choix">
+
+            <h2>
+                🇫🇷 → 🇪🇸 Le Thème
+            </h2>
+
+            <p>
+
+                Traduisez des textes français vers l'espagnol
+                et entraînez-vous à reproduire les nuances,
+                la syntaxe et le vocabulaire du texte original.
+
+            </p>
+
+            <a
+                href="theme.html"
+                class="btn btn-theme"
+            >
+                Commencer le thème
+            </a>
+
+        </div>
+
+
+        <!-- VERSION -->
+
+        <div class="carte-choix version">
+
+            <h2>
+                🇪🇸 → 🇫🇷 La Version
+            </h2>
+
+            <p>
+
+                Traduisez des textes espagnols vers le français
+                et comparez ensuite votre traduction avec
+                la correction proposée.
+
+            </p>
+
+            <a
+                href="version.html"
+                class="btn btn-version"
+            >
+                Commencer la version
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     PRESENTATION
+============================================================= -->
+
+<section class="presentation">
+
+    <h2>
+        Comment fonctionne TradEspa ?
+    </h2>
+
+    <p>
+
+        Choisissez entre le thème et la version, sélectionnez
+        un niveau de difficulté, puis traduisez directement
+        dans les espaces prévus à cet effet.
+
+    </p>
+
+    <p>
+
+        Lorsque vous avez terminé, vous pouvez afficher la
+        correction afin de comparer votre travail avec une
+        proposition de traduction.
+
+    </p>
+
+</section>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>TradEspa</strong>
+    </p>
+
+    <p>
+        Plateforme d'entraînement à la traduction espagnole
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
