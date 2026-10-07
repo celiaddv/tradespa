@@ -1,0 +1,470 @@
+<contact.html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TradEspa - Contact</title>
+
+    <style>
+
+        :root {
+            --rouge: #AA182C;
+            --rouge-fonce: #8B1022;
+
+            --jaune: #F4A261;
+            --jaune-fonce: #D9823B;
+
+            --fond: #FAFAFA;
+            --blanc: #FFFFFF;
+
+            --texte: #2B2D42;
+            --texte-clair: #666666;
+
+            --bordure: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background-color: var(--fond);
+            color: var(--texte);
+
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 40px;
+
+            background-color: white;
+
+            border-bottom: 3px solid var(--jaune);
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            color: var(--rouge);
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--jaune);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--texte);
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--rouge);
+        }
+
+        /* CONTACT */
+
+        .contact-container {
+            max-width: 850px;
+
+            margin: 70px auto;
+
+            padding: 0 25px 80px;
+        }
+
+        .contact-header {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .contact-header h1 {
+            margin-bottom: 10px;
+
+            color: var(--rouge);
+
+            font-size: 2.5rem;
+        }
+
+        .contact-header p {
+            color: var(--texte-clair);
+
+            font-size: 1.05rem;
+        }
+
+        /* FORMULAIRE */
+
+        .formulaire-contact {
+            padding: 40px;
+
+            background-color: white;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.05);
+
+            border-top: 5px solid var(--rouge);
+        }
+
+        .champ {
+            margin-bottom: 25px;
+        }
+
+        .champ label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: 700;
+        }
+
+        .champ input,
+        .champ textarea {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 2px solid var(--bordure);
+
+            border-radius: 8px;
+
+            background-color: #FFFFFF;
+
+            color: var(--texte);
+
+            font-family: inherit;
+
+            font-size: 1rem;
+
+            transition: 0.2s ease;
+        }
+
+        .champ input {
+            height: 50px;
+        }
+
+        .champ textarea {
+            min-height: 180px;
+
+            resize: vertical;
+
+            line-height: 1.6;
+        }
+
+        .champ input:focus,
+        .champ textarea:focus {
+            outline: none;
+
+            border-color: var(--rouge);
+
+            box-shadow:
+                0 0 0 3px rgba(170, 24, 44, 0.08);
+        }
+
+        .bouton-envoyer {
+            border: none;
+
+            padding: 13px 28px;
+
+            border-radius: 7px;
+
+            background-color: var(--rouge);
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .bouton-envoyer:hover {
+            background-color: var(--rouge-fonce);
+
+            transform: translateY(-1px);
+        }
+
+        .obligatoire {
+            color: var(--rouge);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 20px;
+
+            background-color: white;
+
+            border-top: 1px solid var(--bordure);
+
+            color: #999;
+
+            text-align: center;
+
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--rouge);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .contact-container {
+                margin-top: 45px;
+            }
+
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+
+            .formulaire-contact {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =============================================================
+     HEADER
+============================================================= -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        Trad<span>Espa</span>
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Accueil
+        </a>
+
+        <a href="theme.html">
+            Thème
+        </a>
+
+        <a href="version.html">
+            Version
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =============================================================
+     CONTACT
+============================================================= -->
+
+<main class="contact-container">
+
+
+    <div class="contact-header">
+
+        <h1>
+            Contactez-nous
+        </h1>
+
+        <p>
+
+            Une question, une suggestion ou un problème avec
+            TradEspa ? Envoyez-nous un message grâce au formulaire
+            ci-dessous.
+
+        </p>
+
+    </div>
+
+
+    <form
+        class="formulaire-contact"
+        action="#"
+        method="post"
+    >
+
+
+        <!-- NOM -->
+
+        <div class="champ">
+
+            <label for="nom">
+                Nom <span class="obligatoire">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="nom"
+                name="nom"
+                placeholder="Votre nom"
+                required
+            >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="champ">
+
+            <label for="email">
+                Adresse e-mail <span class="obligatoire">*</span>
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="votre@email.com"
+                required
+            >
+
+        </div>
+
+
+        <!-- SUJET -->
+
+        <div class="champ">
+
+            <label for="sujet">
+                Sujet <span class="obligatoire">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="sujet"
+                name="sujet"
+                placeholder="Objet de votre message"
+                required
+            >
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="champ">
+
+            <label for="message">
+                Message <span class="obligatoire">*</span>
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Écrivez votre message ici..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <!-- BOUTON -->
+
+        <button
+            type="submit"
+            class="bouton-envoyer"
+        >
+            Envoyer le message
+        </button>
+
+
+    </form>
+
+</main>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>TradEspa</strong>
+    </p>
+
+    <p>
+        Plateforme d'entraînement à la traduction espagnole
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
